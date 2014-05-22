@@ -1,19 +1,26 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdint.h>
 
 void main() {
 
 	// variaveis
 	double As, D, Bx, FCD, SYK;
-	int TipAco;
+	int Tip;
 
 	double A=0.68;
 	double B=100;
 
 	//Entrada de dados
 
-	printf("QUE TIPO DE AÇO SERÁ UTILIZADO? \n");
-	scanf_s("%d", &TipAco);
+	printf("QUE TIPO DE ACO SERA UTILIZADO? \n");
+	printf("|<><><<><><><><><><><><><><><><>|\n");
+	printf("|                               |\n");
+	printf("| 1 - aco de 30cm               |\n");
+	printf("| 2 - aco de 25cm               |\n");
+	printf("|                               |\n");
+	printf("|<><><<><><><><><><><><><><><><>|\n");
+	scanf_s("%d", &Tip);
 
 	printf("ENTRE COM O VALOR DO D: \n");
 	scanf_s("%f" , & D);
@@ -29,24 +36,21 @@ void main() {
 
 	//PROCESSANDO
 
-	switch (TipAco) {
-		case 1:
+	switch (Tip){
+		case 1:	if (SYK > 0)  printf("\nATENCAO!! SYK DEVE SER MAIOR QUE ZERO! GENTILEZA VERIFICAR OS VALORES.");
 
-			if (SYK > 0)  printf("\n ATENÇÃO!! SYK DEVE SER MAIOR QUE ZERO! GENTILEZA VERIFICAR OS VALORES.");
-			        
-			else if ((Bx < 0) && (Bx >0.645))  printf("\n ATENÇÃO! Beta X deve ter valores entre 0 e 0,645!");
+				else if ((Bx < 0) && (Bx >0.645))  printf("\n ATENÇÃO! Beta X deve ter valores entre 0 e 0,645!");
 
-			else if ((FCD >= 0) && (FCD <= 1.754))
+				else if ((FCD >= 0) && (FCD <= 1.754))
 
 				//CALCULO DA FORMULA
-				As = (A*B*D*Bx*FCD)/SYK;
-			
-				printf("\n As (Area do Aço) para os dados informados é: %2.f\n ", As);
-	
-				
+				As = (A*B*D*Bx*FCD) / SYK;
 
-		}
-	
+				printf("\n As (Area do Aco) para os dados informados é: %2.f\n ", As);
+			break;
 
+		case 2: printf("Codigo em construção!estamos trabalhando para melhor atende-lo");
+			break;
+	}
 	system("pause>>null");
  }
